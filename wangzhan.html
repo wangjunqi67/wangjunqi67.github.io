@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>资源分享网站</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f1f1f1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+
+        ul.navbar {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            background-color: #333;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        ul.navbar li {
+            display: inline;
+        }
+
+        ul.navbar li a {
+            display: block;
+            padding: 10px;
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        ul.categories {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        ul.categories li {
+            margin: 0 10px;
+        }
+
+        .cool-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .cool-button:hover {
+            background-color: #666;
+        }
+
+        .resource-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .resource-list li {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 20px;
+        }
+
+        .resource-list h3 {
+            margin: 0;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .resource-list p {
+            margin: 0;
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .search-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .search-input {
+            padding: 10px;
+            width: 400px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .ip-address {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .current-time {
+            text-align: center;
+            color: #666;
+        }
+    </style>
+</head>
+<body onload="getCurrentIP(); getCurrentTime();">
+    <div class="container">
+        <h1>资源分享网站</h1>
+
+        <!-- 导航栏 -->
+        <ul class="navbar">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">分类</a></li>
+            <li><a href="#">热门</a></li>
+            <li><a href="#">关于</a></li>
+            <li><a href="#">联系我们</a></li>
+        </ul>
+
+        <!-- 分类栏 -->
+        <ul class="categories">
+            <li><a class="cool-button" href="#">教程</a></li>
+            <li><a class="cool-button" href="#">工具</a></li>
+            <li><a class="cool-button" href="#">设计</a></li>
+            <li><a class="cool-button" href="#">开发</a></li>
+        </ul>
+
+        <!-- 搜索栏 -->
+        <div class="search-container">
+            <input class="search-input" type="text" placeholder="输入关键词搜索">
+        </div>
+
+        <!-- 当前用户IP和地址 -->
+        <div class="ip-address" id="ip-address"></div>
+
+        <!-- 当前北京时间 -->
+        <div class="current-time" id="current-time"></div>
+
+        <!-- 资源列表 -->
+		<script>
+		 // 获取当前时间并将其显示在页面上
+		 function getCurrentTime() {
+		 var currentTimeElement = document.getElementById("current-time");
+		 var currentTime = new Date().toLocaleString(); // 获取当前时间并格式化
+		 currentTimeElement.textContent = "当前时间：" + currentTime;
+		 }
+		</script>
+        <ul class="resource-list">
+            <li>
+                <h3>百度</h3>
+                <p>全球最大的中文搜索引擎，提供搜索、新闻、贴吧、知道、音乐、图片、视频等各种服务。</p>
+                <a class="cool-button" href="https://www.baidu.com/" target="_blank" onclick="showPopup()">https://www.baidu.com/</a>
+            </li>
+            <li>
+                <h3>腾讯网</h3>
+                <p>中国领先的互联网综合服务提供商，旗下有腾讯视频、腾讯新闻、QQ音乐等知名产品。</p>
+                <a class="cool-button" href="https://www.qq.com/" target="_blank" onclick="showPopup()">https://www.qq.com/</a>
+            </li>
+            <li>
+                <h3>文心一言</h3>
+                <p>百度公司自行开发的国内版"Chat-GPT"</p>
+                <a class="cool-button" href="https://yiyan.baidu.com/" target="_blank" onclick="showPopup()">https://yiyan.baidu.com/</a>
+            </li>
+            <li>
+                <h3>哔哩哔哩</h3>
+                <p>中国知名的二次元文化社区，提供动画、漫画、游戏、音乐、舞蹈、科技等内容。</p>
+                <a class="cool-button" href="https://www.bilibili.com/" target="_blank" onclick="showPopup()">https://www.bilibili.com/</a>
+            </li>
+            <li>
+                <h3>Chat-GPT 3.5</h3>
+                <p>Chat-GPT 3.5共享连接，提供与OpenAI的GPT-3.5模型进行对话的体验。</p>
+                <a class="cool-button" href="https://chat-shared2.zhile.io/shared.html" target="_blank" onclick="showPopup()">https://chat-shared2.zhile.io/shared.html</a>
+            </li>
+            <li>
+                <h3>GitHub</h3>
+                <p>全球最大的代码托管和版本控制平台，供开发者共享和管理代码。</p>
+                <a class="cool-button" href="https://github.com/" target="_blank" onclick="showPopup()">https://github.com/</a>
+            </li>
+            <li>
+                <h3>知乎</h3>
+                <p>一个问答社区，用户可以提问、回答问题，分享知识和见解。</p>
+                <a class="cool-button" href="https://www.zhihu.com/" target="_blank" onclick="showPopup()">https://www.zhihu.com/</a>
+            </li>
+            <li>
+                <h3>微信</h3>
+                <p>中国最大的即时通讯和社交平台，提供聊天、朋友圈、支付等功能。</p>
+                <a class="cool-button" href="https://weixin.qq.com/" target="_blank" onclick="showPopup()">https://weixin.qq.com/</a>
+            </li>
+            <li>
+                <h3>抖音</h3>
+                <p>一个短视频社交平台，用户可以拍摄和分享短视频。</p>
+                <a class="cool-button" href="https://www.douyin.com/" target="_blank" onclick="showPopup()">https://www.douyin.com/</a>
+            </li>
+            <li>
+                <h3>知网</h3>
+                <p>中国知识资源总库，提供学术论文、期刊、会议论文、学位论文等资源。</p>
+                <a class="cool-button" href="https://www.cnki.net/" target="_blank" onclick="showPopup()">https://www.cnki.net/</a>
+            </li>
+            <li>
+                <h3>新浪微博</h3>
+                <p>中国最大的微博客服务商，用户可以发布和分享文字、图片、视频等内容。</p>
+                <a class="cool-button" href="https://www.weibo.com/" target="_blank" onclick="showPopup()">https://www.weibo.com/</a>
+            </li>
+            <li>
+                <h3>Stack Overflow</h3>
+                <p>全球最大的技术问答网站，开发者可以提问和回答各种编程问题。</p>
+                <a class="cool-button" href="https://stackoverflow.com/" target="_blank" onclick="showPopup()">https://stackoverflow.com/</a>
+            </li>
+            <li>
+                <h3>MDN Web Docs</h3>
+                <p>提供开发者所需的Web技术文档和资源，包括HTML、CSS、JavaScript等。</p>
+                <a class="cool-button" href="https://developer.mozilla.org/" target="_blank" onclick="showPopup()">https://developer.mozilla.org/</a>
+            </li>
+            <li>
+                <h3>Codecademy</h3>
+                <p>一个在线交互式编程学习平台，提供各种编程语言的课程和项目。</p>
+                <a class="cool-button" href="https://www.codecademy.com/" target="_blank" onclick="showPopup()">https://www.codecademy.com/</a>
+            </li>
+            <li>
+                <h3>吾爱破解</h3>
+                <p>国内知名的破解软件和技术交流论坛，提供各种软件破解和资源分享。</p>
+                <a class="cool-button" href="https://www.52pojie.cn/" target="_blank" onclick="showPopup()">https://www.52pojie.cn/</a>
+            </li>
+            <!-- 添加更多编程网站 -->
+	<!-- 音乐播放器 -->
+        <div class="music-player">
+            <audio controls>
+                <source src="告五人 -给你一瓶魔法药水.mp3" type="audio/mpeg">
+                <source src="夜神鹿 -不问ciaga（正版）.mp3" type="audio/ogg">
+                <source src="Toby Fox -His Theme.mp3" type="audio/wav">
+                您的浏览器不支持音频播放器。
+            </audio>
+        </div>
+        </ul>
+    </div>
+</body>
+</html>
+<SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>
