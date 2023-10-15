@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>王俊琪作业空间</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f1f1f1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+
+        ul.navbar {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            background-color: #333;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        ul.navbar li {
+            display: inline;
+        }
+
+        ul.navbar li a {
+            display: block;
+            padding: 10px;
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        ul.categories {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        ul.categories li {
+            margin: 0 10px;
+        }
+
+        .cool-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .cool-button:hover {
+            background-color: #666;
+        }
+
+        .resource-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .resource-list li {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 20px;
+        }
+
+        .resource-list h3 {
+            margin: 0;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .resource-list p {
+            margin: 0;
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .search-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .search-input {
+            padding: 10px;
+            width: 400px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .ip-address {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .current-time {
+            text-align: center;
+            color: #666;
+        }
+    </style>
+</head>
+<body onload="getCurrentIP(); getCurrentTime();">
+    <div class="container">
+        <h1>王俊琪作业空间</h1>
+
+        </ul>
+
+        <!-- 搜索栏 -->
+        <div class="search-container">
+            <input class="search-input" type="text" placeholder="输入关键词搜索">
+        </div>
+
+        <!-- 当前用户IP和地址 -->
+        <div class="ip-address" id="ip-address"></div>
+
+        <!-- 当前北京时间 -->
+        <div class="current-time" id="current-time"></div>
+
+        <!-- 资源列表 -->
+		<script>
+		 // 获取当前时间并将其显示在页面上
+		 function getCurrentTime() {
+		 var currentTimeElement = document.getElementById("current-time");
+		 var currentTime = new Date().toLocaleString(); // 获取当前时间并格式化
+		 currentTimeElement.textContent = "当前时间：" + currentTime;
+		 }
+		</script>
+        <ul class="resource-list">
+            <li>
+                <h3>刊物跳转</h3>
+                <p>未知</p>
+                <a class="cool-button" href="" target="_blank" onclick="showPopup()"></a>
+
+            <li>
+                
+	<!-- 音乐播放器 -->
+        <div class="music-player">
+            <audio controls>
+                <source src="告五人 -给你一瓶魔法药水.mp3" type="audio/mpeg">
+                <source src="夜神鹿 -不问ciaga（正版）.mp3" type="audio/ogg">
+                <source src="Toby Fox -His Theme.mp3" type="audio/wav">
+                您的浏览器不支持音频播放器。
+            </audio>
+        </div>
+        </ul>
+    </div>
+</body>
+</html>
+<SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>
