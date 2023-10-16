@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>作业提交平台</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form label, form textarea, form input {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #0074d9;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>欢迎来到作业提交平台</h1>
+
+    <div class="container">
+        <h2>提交作业</h2>
+        <form id="assignmentForm">
+            <label for="name">名字:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="content">内容:</label>
+            <textarea id="content" name="content" rows="4" cols="50" required></textarea>
+
+            <label for="link">链接:</label>
+            <input type="text" id="link" name="link" required>
+
+            <button type="submit">提交作业</button>
+        </form>
+
+        <hr>
+
+        <h2>作业列表</h2>
+        <ul id="assignmentList">
+            <!-- 这里将使用JavaScript来填充作业列表 -->
+        </ul>
+    </div>
+
+    <script>
+        // 保存作业到LocalStorage
+        document.getElementById('assignmentForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const content = document.getElementById('content').value;
+            const link = document.getElementById('link').value;
+
+            const assignment = { name, content, link };
+            
+            // 获取现有作业列表或初始化为空数组
+            const assignments = JSON.parse(localStorage.getItem('assignments')) || [];
+            
+            assignments.push(assignment);
+
+            // 存储到LocalStorage
+            localStorage.setItem('assignments', JSON.stringify(assignments));
+
+            // 刷新作业列表
+            updateAssignmentList();
+
+            // 清空表单
+            document.getElementById('name').value = '';
+            document.getElementById('content').value = '';
+            document.getElementById('link').value = '';
+        });
+
+        // 更新作业列表
+        function updateAssignmentList() {
+            const assignmentList = document.getElementById('assignmentList');
+            assignmentList.innerHTML = '';
+
+            // 获取保存在LocalStorage中的作业
+            const assignments = JSON.parse(localStorage.getItem('assignments')) || [];
+
+            assignments.forEach((assignment, index) => {
+                const li = document.createElement('li');
+                li.innerHTML = `<strong>${assignment.name}:</strong> ${assignment.content} <a href="${assignment.link}" target="_blank">查看作业</a>`;
+                assignmentList.appendChild(li);
+            });
+        }
+
+        // 初始加载作业列表
+        updateAssignmentList();
+</body>
+</html>
