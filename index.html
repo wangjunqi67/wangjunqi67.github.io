@@ -126,6 +126,14 @@
             text-align: center;
             color: #666;
         }
+	     /* 设置背景图的路径，可以是相对路径或者 URL */
+        background-image: url('背景图.jpg');
+            /* 设置背景图的填充方式，可以是拉伸、平铺等 */
+        background-size: cover; /* 这里使用 cover 让背景图充满整个页面 */
+            /* 如果背景图不能完全填充整个页面，可以设置背景图的位置 */
+        background-position: center; /* 将背景图居中显示 */
+            /* 如果页面内容比较多，可以固定背景图不随滚动而移动 */
+        background-attachment: fixed; /* 将背景图固定在页面上 */
     </style>
 </head>
 <body onload="getCurrentIP(); getCurrentTime();">
